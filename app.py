@@ -1,15 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, redirect, url_for,request
 from flask import flash
 from flask_wtf.csrf import CSRFProtect
 from config import DevelopmentConfig
 from flask_migrate import Migrate #agregar referencia de migracion
 from flask import g
+from maestros.routes import maestros
 import forms
 from models import db
 from models import Alumnos
 
 app= Flask(__name__)
 app.config.from_object(DevelopmentConfig)
+app.register_blueprint(maestros) #Donde yo le digo que ahi va a estar mis rutas de maestro
 db.init_app(app)
 migrate=Migrate(app,db) #migracion a db
 csrf= CSRFProtect()

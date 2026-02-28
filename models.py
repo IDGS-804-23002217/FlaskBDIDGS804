@@ -16,3 +16,13 @@ class Alumnos(db.Model):
 
 # Cada una de esta clases hacereferencia a las tablas de la base de datos
 #Nombre de mi tabla = alumnos y sus campos son id que es primary key y auto incrementabe
+
+
+class Maestros(db.Model):
+    _tablename_='maestros'
+    matricula=db.Column(db.Integer,primary_key=True)
+    nombre=db.Column(db.String(50))
+    apellidos=db.Column(db.String(50))
+    especialidad=db.Column(db.String(50))
+    email=db.Column(db.String(50))
+    
