@@ -16,9 +16,11 @@ db.init_app(app)
 migrate=Migrate(app,db) #migracion a db
 csrf= CSRFProtect()
 
+
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template("404.html"), 404
+
 
 @app.route("/",methods=['GET','POST'])
 @app.route("/index")
